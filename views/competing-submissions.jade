@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+    if submissions.length >1
+        h1 Keep voting to reach a winner!
+    else
+        h1 And the winner is...
+
+    ul
+        for submission in submissions
+            li <strong>Submitted by: </strong> #{submission.name}
+            br
+            if submissions.length >1
+                a(href="/vote/#{submission.id}") Vote for this entry!  
+            br
+            br
+            ul
+                li <strong>Title: </strong><em>#{submission.title}</em>
+                li <strong>Description: </strong>#{submission.description}
+                li <strong>Total Votes: </strong>#{submission.voteCounter}
+                li <iframe width="560" height="315" src="#{submission.url}" frameborder="0" allowfullscreen></iframe>
+            br
+            br
+    if submissions.length >1
+        h2 Done Voting?  Go to the <a href="/competing-submissions">next step</a> to narrow it down.
+    else
+        h2 Thanks for voting.  You have chosen a winner!
+        br
+        h4 Want to play again?  <a href="/return">Return</a> to the main page.

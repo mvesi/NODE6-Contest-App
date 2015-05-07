@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1 Welcome to the favorite video contest!
+
+    form(name="contest-entry", action="/submissions", method="post")
+        input(type="text", placeholder="Your Name", name="name")
+        input(type="text", placeholder="YouTube URL", name="url")
+        input(type="text", placeholder="Video Title", name="title")
+        input(type="text", placeholder="Video Description", name="description")
+        input(type="submit")
+
+
+    br
+    br
+    br
+    strong Video Submission Count: #{submissions.length}
+
+    p Once there are 8 videos submitted, you may begin the voting process by clicking <a href="/submissions">here</a>

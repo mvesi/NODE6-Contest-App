@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1 Let the voting begin!
+
+    ul
+        for submission in submissions
+            li <strong>Submitted by: </strong> #{submission.name}
+            br
+            a(href="/vote/#{submission.id}") Vote for this entry!  
+            br
+            br
+            ul
+                li <strong>Title: </strong><em>#{submission.title}</em>
+                li <strong>Description: </strong>#{submission.description}
+                li <strong>Total Votes: </strong>#{submission.voteCounter}
+                li <iframe width="560" height="315" src="#{submission.url}" frameborder="0" allowfullscreen></iframe>
+            br
+            br
+    h2 Done Voting?  Go to the <a href="/competing-submissions">next step</a> to narrow it down.
+
+

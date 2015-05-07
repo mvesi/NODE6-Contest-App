@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1 Video Submissions
+
+    ul
+        for pairedSubmission in pairedSubmissions
+            li <strong>Submitted by: </strong> #{pairedSubmission.name}
+            br
+            //- a(href="/vote/#{submission.id}") Vote for this entry!  
+            //- input(type="checkbox", name="compare", value=submission.id)
+            //- none Select to compare
+            //- br
+            br
+            ul
+                li <strong>Title: </strong><em>#{pairedSubmission.title}</em>
+                li <strong>Description: </strong>#{pairedSubmission.description}
+                li <strong>Total Votes: </strong>#{pairedSubmission.voteCounter}
+                li <iframe width="560" height="315" src="#{pairedSubmission.url}" frameborder="0" allowfullscreen></iframe>
+            br
+            br
